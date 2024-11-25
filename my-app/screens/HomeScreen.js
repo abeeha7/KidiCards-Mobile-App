@@ -26,9 +26,10 @@ const HomePage = () => {
 
   const handleButtonClick = async (path) => {
  
-      setTimeout(() => navigation.navigate('Team'), 500);
+      setTimeout(() => navigation.navigate(path), 500);
     
   };
+  
 
   // const createClouds = () => {
   //   const newClouds = [];
@@ -93,7 +94,7 @@ const HomePage = () => {
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => handleButtonClick("Register")}
+        onPress={() => handleButtonClick("Team")}
       >
         <Text style={styles.buttonText}>View Team</Text>
       </TouchableOpacity>
@@ -104,6 +105,21 @@ const HomePage = () => {
       >
         <Text style={styles.buttonText}>Sign In</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => handleButtonClick("Avatar")}
+      >
+        <Text style={styles.buttonText}>Profile Picture</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => handleButtonClick("About")}
+      >
+        <Text style={styles.buttonText}>About Us</Text>
+      </TouchableOpacity>
+
 
       <View style={styles.cloudContainer}>
         {clouds.map((cloud) => (
