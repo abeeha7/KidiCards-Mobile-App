@@ -1,4 +1,5 @@
 import { registerRootComponent } from 'expo';
+import 'react-native/Libraries/Core/InitializeCore'; // Ensure the bridge initializes correctly.
 
 import App from './App';
 
