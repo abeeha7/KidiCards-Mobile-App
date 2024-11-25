@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
   projectTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#4a90e2',
+    color: '#76bae2',
     marginBottom: 15,
     textAlign: 'center',
   },
@@ -178,14 +178,16 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   linkButton: {
-    backgroundColor: '#4a90e2',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    backgroundColor: '#F8C8D9',
+    borderRadius: 25, 
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    marginBottom: 20, 
   },
   linkButtonText: {
+    color: 'white',
     fontSize: 18,
-    color: '#fff',
     fontWeight: 'bold',
+    alignItems:'center'
   },
 });
