@@ -29,13 +29,19 @@
         "CAMERA",
         "READ_EXTERNAL_STORAGE",
         "WRITE_EXTERNAL_STORAGE"
-      ]
+      ],
+      "package": "kidi.cards"
     },
     "web": {
       "favicon": "./assets/logo.png"
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "7fd29fde-fc17-45fc-be00-013c76c06f11"
+      }
+    }
   }
 }
