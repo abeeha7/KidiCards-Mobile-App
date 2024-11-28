@@ -96,18 +96,21 @@ const styles = StyleSheet.create({
     paddingTop: 60,
   },
   headerTitle: {
+    fontFamily: 'Lilita',
     fontSize: 30,
     fontWeight: 'bold',
     color: '#ff6347',
     marginTop: 20,
   },
   headerDescription: {
+    fontFamily: 'Quicksand',
     fontSize: 16,
     color: '#666',
     marginVertical: 10,
     textAlign: 'center',
   },
   headerImage: {
+    
     width: 100,
     height: 100,
     position: 'absolute',
@@ -125,6 +128,7 @@ const styles = StyleSheet.create({
     paddingTop: 60,
   },
   sectionTitle: {
+    fontFamily: 'Lilita',
     fontSize: 24,
     fontWeight: 'bold',
     color: '#76bae2',
@@ -132,6 +136,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   sectionDescription: {
+    fontFamily: 'Quicksand',
     fontSize: 16,
     color: '#666',
     textAlign: 'center',
@@ -150,6 +155,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   featureItem: {
+    fontFamily: 'Quicksand',
     fontSize: 16,
     color: '#444',
     backgroundColor: '#f9d6e5',
@@ -165,6 +171,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   projectTitle: {
+    fontFamily: 'Lilita',
     fontSize: 24,
     fontWeight: 'bold',
     color: '#76bae2',
@@ -178,6 +185,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   linkButton: {
+    
     backgroundColor: '#F8C8D9',
     borderRadius: 25, 
     paddingVertical: 15,
@@ -188,6 +196,12 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     fontWeight: 'bold',
-    alignItems:'center'
+    alignItems:'center',
+    fontFamily: 'Quicksand',
+    shadowColor: '#924a55',
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    elevation: 5,
   },
 });

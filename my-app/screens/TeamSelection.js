@@ -47,7 +47,7 @@ const TeamSelection = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
-        {selectedMember && <Text style={styles.selectedText}>You selected: {selectedMember}</Text>}
+        {/* {selectedMember && <Text style={styles.selectedText}>You selected: {selectedMember}</Text>} */}
       </View>
     </ImageBackground>
   );
@@ -70,9 +70,9 @@ const styles = StyleSheet.create({
   },
   heading: {
     marginTop: 20,
-    fontFamily: 'Quicksand',
-    fontSize: 30,
-    fontWeight: 'bold',
+    fontFamily: 'Lilita',
+    fontSize: 40,
+
     textAlign: 'center',
     color: '#ffff', // Darker pink color
     marginBottom: 10,
@@ -93,13 +93,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   memberImage: {
-    width: 200,
+    width: 220,
     height: 220, // Adjust according to the image size
-    borderRadius: 5,
+    borderRadius: 10,
   },
-  selectedImage: {
-    transform: [{ scale: 1.1 }], // Scale up the image on selection
-  },
+
   memberName: {
     fontFamily: 'Quicksand',
     fontSize: 25,

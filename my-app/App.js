@@ -8,8 +8,8 @@ import AboutScreen from './screens/AboutScreen';
 import HomeScreen from './screens/HomeScreen';
 import TeamSelection from './screens/TeamSelection';
 import ProfileScreen from './screens/ProfileScreen';
-
-
+import WelcomePage from './screens/WelcomePage';
+import DetailsPage from './screens/DetailsPage';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +20,8 @@ export default function App() {
     async function loadFonts() {
       await Font.loadAsync({
         Quicksand: require('./fonts/Quicksand/Quicksand-VariableFont_wght.ttf'), // Path to your font
+        Poppinsbold: require('./fonts/Poppins/Poppins-Bold.ttf'),
+        Lilita: require('./fonts/Lilita_One/LilitaOne-Regular.ttf'),
       });
       setFontLoaded(true);
     }
@@ -44,8 +46,9 @@ export default function App() {
           headerTitleStyle: { fontFamily: 'Quicksand' }, // Apply font to headers
         }}
       >
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="About" component={AboutScreen} />
+        <Stack.Screen name="Home" component={WelcomePage} />
+        <Stack.Screen name="Aboutus" component={AboutScreen} />
+        <Stack.Screen name="DetailsPage" component={DetailsPage} />
         <Stack.Screen name="Team" component={TeamSelection} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Avatar" component={ProfileScreen} />
