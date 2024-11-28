@@ -113,6 +113,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#e07d8c',
     fontFamily: 'Lilita',
+    marginTop: 50,
   },
   image: {
     width: 400,
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 5,
     elevation: 5,
-    marginTop: 20,
+    marginTop: 10,
   },
   button3: {
     backgroundColor: '#C8A2C8',
@@ -161,7 +162,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 5,
     elevation: 5,
-    marginTop: 20,
+    marginTop: 10,
   },
   buttonText: {
     fontSize: 18,
