@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity, ScrollView, ImageBackground } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity, ScrollView, ImageBackground, Linking } from 'react-native';
 
 const background = require('../assets/bgg.png'); // Ensure the image exists or use a fallback
 
@@ -13,22 +13,46 @@ const Profile = ({ route }) => {
       return {
         profilePic: require('../assets/Abeeha.png'),
         description: 'Computer Science Senior | Habib University',
-        background: 'B.Sc. in Computer Science, XYZ University\nM.Sc. in AI, ABC University',
+        background: {
+          text: 'GitHub Profile',
+          url: 'https://github.com/abeeha7',
+          coursesTaken: [
+            'Data Structures and Algorithms',
+            'Operating Systems',
+            'Software Security',
+            'Web Development',
+          ],
+          toolsFrameworks: ['React Js', 'Firebase', 'Node.js','React Native'],
+          programmingLanguages: ['JavaScript', 'Python', 'Java', 'C++'],
+          technicalSkills: ['Web Development', 'Game Development', 'Database Management'],
+        },
         contributions: [
           'Added the Data in Firestore',
-          'Developed Main Page, Matching Page, Testing Page,Scores Page',
-          'Native App: Added Camera, Avatar Page and About Us',
+          'Developed Main Page,Learning Page, Matching Page, Testing Page,Score Page',
+          'Native App: Added Camera, Avatar Page, About Us',
         ],
       };
     } else if (memberName === 'Areesha') {
       return {
         profilePic: require('../assets/Areesha.png'),
         description: 'Computer Science Senior | Habib University',
-        background: 'IDK',
+        background: {
+          text: 'GitHub Profile',
+          url: 'https://github.com/AAreesha',
+          coursesTaken: [
+            'Data Structures and Algorithms',
+            'Operating Systems',
+            'Artificial Intelligence',
+            'Web Development',
+          ],
+          toolsFrameworks: ['React Js', 'Firebase', 'Node.js', 'React Native'],
+          programmingLanguages: ['JavaScript', 'Python', 'Java', 'C++'],
+          technicalSkills: ['UI/UX Design', 'API Development', 'Database Management'],
+        },
         contributions: [
           'Designed the Wireframes',
           'Handled the Firebase and Admin Functions',
-          'Made the Homepage, Login, Registration About Us, Avatar, Profile Section, Admin Form',
+          'Made the Homepage, Login, Registration, About Us, Avatar, Profile Section, Admin Form',
           'Native App: Made Main Page, Profile Screens, Learn More Carousel',
         ],
       };
@@ -48,11 +72,68 @@ const Profile = ({ route }) => {
         </View>
 
         {showBackground && (
-          <View style={styles.details}>
-            <Text style={styles.detailsTitle}>Academic Background</Text>
-            <Text style={styles.detailsText}>{memberDetails.background}</Text>
-          </View>
-        )}
+  <View style={styles.details}>
+    {/* Academic Background */}
+    {typeof memberDetails.background === 'string' ? (
+      <Text style={styles.detailsText}>{memberDetails.background}</Text>
+    ) : (
+      <Text
+        style={[styles.detailsText, styles.link]}
+        onPress={() => Linking.openURL(memberDetails.background.url)}
+      >
+        {memberDetails.background.text}
+      </Text>
+    )}
+
+    {/* Courses Taken */}
+    {memberDetails.background.coursesTaken && Array.isArray(memberDetails.background.coursesTaken) && memberDetails.background.coursesTaken.length > 0 && (
+      <>
+        <Text style={styles.detailsTitle}>Courses Taken</Text>
+        {memberDetails.background.coursesTaken.map((course, index) => (
+          <Text key={index} style={styles.detailsText}>
+            • {course}
+          </Text>
+        ))}
+      </>
+    )}
+
+    {/* Tools & Frameworks */}
+    {memberDetails.background.toolsFrameworks && Array.isArray(memberDetails.background.toolsFrameworks) && memberDetails.background.toolsFrameworks.length > 0 && (
+      <>
+        <Text style={styles.detailsTitle}>Tools & Frameworks</Text>
+        {memberDetails.background.toolsFrameworks.map((tool, index) => (
+          <Text key={index} style={styles.detailsText}>
+            • {tool}
+          </Text>
+        ))}
+      </>
+    )}
+
+    {/* Programming Languages */}
+    {memberDetails.background.programmingLanguages && Array.isArray(memberDetails.background.programmingLanguages) && memberDetails.background.programmingLanguages.length > 0 && (
+      <>
+        <Text style={styles.detailsTitle}>Programming Languages</Text>
+        {memberDetails.background.programmingLanguages.map((language, index) => (
+          <Text key={index} style={styles.detailsText}>
+            • {language}
+          </Text>
+        ))}
+      </>
+    )}
+
+    {/* Technical Skills */}
+    {memberDetails.background.technicalSkills && Array.isArray(memberDetails.background.technicalSkills) && memberDetails.background.technicalSkills.length > 0 && (
+      <>
+        <Text style={styles.detailsTitle}>Technical Skills</Text>
+        {memberDetails.background.technicalSkills.map((skill, index) => (
+          <Text key={index} style={styles.detailsText}>
+            • {skill}
+          </Text>
+        ))}
+      </>
+    )}
+  </View>
+)}
 
         {showContributions && (
           <View style={styles.details}>
@@ -154,6 +235,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'Quicksand',
     letterSpacing: 1,
+  },
+  link:{
+    color:'blue',
   },
 });
 

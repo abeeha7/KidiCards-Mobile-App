@@ -40,6 +40,23 @@ export default function WelcomePage({ navigation }) {
       navigation.navigate('Team'); // Navigate after animation
     });
   };
+  const handleAvatar = () => {
+    // Start the scale animation for Meet the Team button
+    Animated.sequence([
+      Animated.timing(scaleValueTeam, {
+        toValue: 1.1,
+        duration: 150,
+        useNativeDriver: true,
+      }),
+      Animated.timing(scaleValueTeam, {
+        toValue: 1,
+        duration: 150,
+        useNativeDriver: true,
+      }),
+    ]).start(() => {
+      navigation.navigate('Avatar'); // Navigate after animation
+    });
+  };
 
   return (
     <View style={styles.container}>
@@ -60,6 +77,13 @@ export default function WelcomePage({ navigation }) {
       <Animated.View style={{ transform: [{ scale: scaleValueTeam }] }}>
         <TouchableOpacity style={styles.button2} onPress={handleTeam}>
           <Text style={styles.buttonText}>Meet the Team</Text>
+        </TouchableOpacity>
+      </Animated.View>
+
+       {/* Animated Button for Avatar Team */}
+      <Animated.View style={{ transform: [{ scale: scaleValueTeam }] }}>
+        <TouchableOpacity style={styles.button3} onPress={handleAvatar}>
+          <Text style={styles.buttonText}>Select Avatar</Text>
         </TouchableOpacity>
       </Animated.View>
     </View>
@@ -125,7 +149,19 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 5,
     elevation: 5,
-    marginTop: 10,
+    marginTop: 20,
+  },
+  button3: {
+    backgroundColor: '#C8A2C8',
+    borderRadius: 30,
+    paddingVertical: 16,
+    paddingHorizontal: 24,
+    shadowColor: '#d1edfc',
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    elevation: 5,
+    marginTop: 20,
   },
   buttonText: {
     fontSize: 18,

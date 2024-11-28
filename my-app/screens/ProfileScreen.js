@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet, TouchableHighlight } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet, TouchableHighlight, Animated } from 'react-native';
 import * as ImagePicker from 'expo-image-picker'; // Import expo-image-picker
 import profile1 from '../assets/girl.png';
 import profile2 from '../assets/girl1.png';
@@ -25,6 +25,7 @@ export default function ProfileScreen({ navigation }) {
 
   const handleTakePicture = async () => {
     // Request permission to access camera
+    
     const { status } = await ImagePicker.requestCameraPermissionsAsync();
     if (status !== 'granted') {
       alert('Permission to access camera is required!');
@@ -93,7 +94,7 @@ export default function ProfileScreen({ navigation }) {
         <TouchableHighlight style={styles.button} onPress={handleTakePicture}>
           <Text style={styles.buttonText}>Take a Picture</Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button} onPress={handlePickImage}>
+        <TouchableHighlight style={styles.button2} onPress={handlePickImage}>
           <Text style={styles.buttonText}>Select an Image</Text>
         </TouchableHighlight>
       </View>
@@ -141,10 +142,37 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     marginBottom: 20, 
   },
+  button: {
+    backgroundColor: '#e28694',
+    borderRadius: 30,
+    paddingVertical: 16,
+    paddingHorizontal: 35,
+    shadowColor: '#924a55',
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    elevation: 5,
+  },
+  button2: {
+    backgroundColor: '#61a0d2',
+    borderRadius: 30,
+    paddingVertical: 16,
+    paddingHorizontal: 24,
+    shadowColor: '#d1edfc',
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    elevation: 5,
+    marginTop: 20,
+  },
   buttonText: {
-    color: 'white',
     fontSize: 18,
-    fontWeight: 'bold',
-    alignItems:'center'
+    color: '#FFFFFF',
+    fontWeight: '600',
+    textAlign: 'center',
+    fontFamily: 'Quicksand',
+    textShadowColor: '#864747',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 5,
   },
 });
