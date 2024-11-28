@@ -30,6 +30,7 @@ const Profile = ({ route }) => {
           'Added the Data in Firestore',
           'Developed Main Page,Learning Page, Matching Page, Testing Page,Score Page',
           'Native App: Added Camera, Avatar Page, About Us',
+          'Built the APK file'
         ],
       };
     } else if (memberName === 'Areesha') {
@@ -53,6 +54,7 @@ const Profile = ({ route }) => {
           'Designed the Wireframes',
           'Handled the Firebase and Admin Functions',
           'Made the Homepage, Login, Registration, About Us, Avatar, Profile Section, Admin Form',
+          'Deployed the Website on Vercel',
           'Native App: Made Main Page, Profile Screens, Learn More Carousel',
         ],
       };
