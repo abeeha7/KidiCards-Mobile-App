@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, Animated } from 'react
 export default function WelcomePage({ navigation }) {
   const scaleValueLearnMore = useRef(new Animated.Value(1)).current;
   const scaleValueTeam = useRef(new Animated.Value(1)).current;
+  const scaleAvatar = useRef(new Animated.Value(1)).current;
+
 
   const handleLearnMore = () => {
     // Start the scale animation for Learn More button
@@ -43,12 +45,12 @@ export default function WelcomePage({ navigation }) {
   const handleAvatar = () => {
     // Start the scale animation for Meet the Team button
     Animated.sequence([
-      Animated.timing(scaleValueTeam, {
+      Animated.timing(scaleAvatar, {
         toValue: 1.1,
         duration: 150,
         useNativeDriver: true,
       }),
-      Animated.timing(scaleValueTeam, {
+      Animated.timing(scaleAvatar, {
         toValue: 1,
         duration: 150,
         useNativeDriver: true,
@@ -81,7 +83,7 @@ export default function WelcomePage({ navigation }) {
       </Animated.View>
 
        {/* Animated Button for Avatar Team */}
-      <Animated.View style={{ transform: [{ scale: scaleValueTeam }] }}>
+      <Animated.View style={{ transform: [{ scale: scaleAvatar }] }}>
         <TouchableOpacity style={styles.button3} onPress={handleAvatar}>
           <Text style={styles.buttonText}>Select Avatar</Text>
         </TouchableOpacity>

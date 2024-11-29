@@ -112,7 +112,8 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   avatarSelect: {
-    fontSize: 28,
+    fontSize: 35,
+    fontFamily: 'Lilita',
     color: '#F56565', 
     fontWeight: 'bold',
     marginBottom: 20,
@@ -125,13 +126,16 @@ const styles = StyleSheet.create({
     marginBottom: 20,  
   },
   avatarImage: {
-    width: 70,
-    height: 70,
-    borderRadius: 35, 
+    width: 80,
+    height: 80,
+    borderRadius: 40, // Half of the width and height to make a perfect circle
     marginHorizontal: 10,
     borderWidth: 2,
-    borderColor: '#E0E0E0',
+    borderColor: '#BA5F1A', // White border
+    margin: 15,
+    resizeMode: 'cover', // This ensures the image fills the circle without distortion
   },
+  
   buttonContainer: {
     marginTop: 15,  
   },

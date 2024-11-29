@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, Dimensions, Image, TouchableOpacity } from 'react-native';
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  FlatList, 
+  Dimensions, 
+  Image, 
+  TouchableOpacity 
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
@@ -13,20 +21,20 @@ const DetailsPage = () => {
       title: 'Learn',
       description: 'Learn Urdu and English with Fun Flashcards!',
       backgroundColor: '#FFEDD6',
-      image: require('../assets/learn.png'), // Make sure the path is correct
+      image: require('../assets/learn.png'), // Replace with your image path
     },
     {
       title: 'Play',
       description: 'Engage with interactive games to improve vocabulary!',
       backgroundColor: '#D6F5FF',
-      image: require('../assets/play.png'), // Make sure the path is correct
+      image: require('../assets/play.png'), // Replace with your image path
     },
     {
       title: 'Quiz',
       description: 'Test your knowledge with exciting quizzes!',
       backgroundColor: '#FFFF',
-      image: require('../assets/test.png'), // Make sure the path is correct
-      showAboutUs: true, // Add a flag to identify the last slide
+      image: require('../assets/test.png'), // Replace with your image path
+      showAboutUs: true,
     },
   ];
 
@@ -38,19 +46,20 @@ const DetailsPage = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView
+      <FlatList
+        data={slides}
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
+        keyExtractor={(item, index) => index.toString()}
         onScroll={handleScroll}
         scrollEventThrottle={16}
-      >
-        {slides.map((slide, index) => (
-          <View key={index} style={[styles.slide, { backgroundColor: slide.backgroundColor }]}>
-            <Text style={styles.title}>{slide.title}</Text>
-            <Image source={slide.image} style={styles.image} />
-            <Text style={styles.description}>{slide.description}</Text>
-            {slide.showAboutUs && (
+        renderItem={({ item }) => (
+          <View style={[styles.slide, { backgroundColor: item.backgroundColor }]}>
+            <Text style={styles.title}>{item.title}</Text>
+            <Image source={item.image} style={styles.image} />
+            <Text style={styles.description}>{item.description}</Text>
+            {item.showAboutUs && (
               <TouchableOpacity
                 style={styles.aboutUsButton}
                 onPress={() => navigation.navigate('Aboutus')}
@@ -59,8 +68,8 @@ const DetailsPage = () => {
               </TouchableOpacity>
             )}
           </View>
-        ))}
-      </ScrollView>
+        )}
+      />
       <View style={styles.pagination}>
         {slides.map((_, index) => (
           <View
@@ -94,14 +103,14 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 80,
-    fontFamily: 'Lilita',
+    fontFamily: 'Lilita', // Ensure the font is correctly linked
     fontWeight: 'bold',
     color: '#333',
-    textAlign: 'center', // Centers the title
+    textAlign: 'center',
   },
   description: {
-    fontFamily: 'Quicksand',
-    fontWeight: 600,
+    fontFamily: 'Quicksand', // Ensure the font is correctly linked
+    fontWeight: '600',
     fontSize: 20,
     textAlign: 'center',
     color: '#666',
@@ -129,13 +138,13 @@ const styles = StyleSheet.create({
     height: 10,
     borderRadius: 5,
     marginHorizontal: 5,
-    backgroundColor: '#DDD', // Default color for inactive dots
+    backgroundColor: '#DDD',
   },
   activeDot: {
-    backgroundColor: '#FF6347', // Active dot color
+    backgroundColor: '#FF6347',
   },
   inactiveDot: {
-    backgroundColor: '#DDD', // Inactive dot color
+    backgroundColor: '#DDD',
   },
 });
 
